@@ -1,12 +1,12 @@
 FROM hypriot/rpi-alpine-scratch
 
-ADD https://github.com/xenolf/lego/releases/download/v0.3.1/lego_linux_arm.tar.xz /download/
+ADD https://github.com/xenolf/lego/releases/download/v3.3.0/lego_v3.3.0_linux_armv7.tar.gz /download/
 
 RUN \
     apk add -U ca-certificates && \
     cd /download && \
-    tar -xJf lego_linux_arm.tar.xz && \
-    mv /download/lego/lego /usr/bin/lego && \
+    tar -zxvf lego_v3.3.0_linux_armv7.tar.gz && \
+    mv /download/lego /usr/bin/lego && \
     rm -Rf /download 
 
 ENTRYPOINT [ "/usr/bin/lego" ]
